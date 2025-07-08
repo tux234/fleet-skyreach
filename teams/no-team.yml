@@ -1,4 +1,24 @@
+controls:
+  enable_disk_encryption: false
+  ios_updates:
+    deadline:
+    minimum_version:
+  ipados_updates:
+    deadline:
+    minimum_version:
+  macos_migration:
+    enable: false
+    mode:
+    webhook_url:
+  macos_updates:
+    deadline:
+    minimum_version:
+  scripts:
+  windows_enabled_and_configured: true
+  windows_migration_enabled: true
+  windows_updates:
+    deadline_days:
+    grace_period_days:
 name: No team
 policies:
-controls:
 software:

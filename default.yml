@@ -1,5 +1,19 @@
 agent_options:
-  path: ./lib/all/agent-options/agent-options.yml
+  config:
+    decorators:
+      load:
+      - SELECT uuid AS host_uuid FROM system_info;
+      - SELECT hostname AS hostname FROM system_info;
+    options:
+      disable_distributed: false
+      distributed_interval: 10
+      distributed_plugin: tls
+      distributed_tls_max_attempts: 3
+      logger_tls_endpoint: /api/osquery/log
+      logger_tls_period: 10
+      pack_delimiter: /
+  overrides:
+labels:
 org_settings:
   features:
     enable_host_users: true
@@ -8,18 +22,29 @@ org_settings:
     transparency_url: https://fleetdm.com/transparency
   host_expiry_settings:
     host_expiry_enabled: false
+    host_expiry_window: 0
   integrations:
+    conditional_access_enabled:
+    custom_scep_proxy:
+    digicert:
     google_calendar:
-      enable_calendar_events: false
-      webhook_url: ""
+    jira:
+    ndes_scep_proxy:
+    zendesk:
   mdm:
-    apple_bm_default_team: ""
-    apple_bm_terms_expired: false
-    apple_bm_enabled_and_configured: false
+    apple_business_manager:
+    apple_server_url:
+    end_user_authentication:
+      entity_id:
+      idp_name:
+      issuer_uri:
+      metadata:
+      metadata_url:
+    volume_purchasing_program:
   org_info:
     contact_url: https://fleetdm.com/company/contact
     org_logo_url: https://static.wikia.nocookie.net/eberron/images/b/bf/Dragonmarked_House_COA_Cannith.jpg
-    org_logo_url_light_background: ""
+    org_logo_url_light_background:
     org_name: House Cannith
   secrets:
   - secret: $FLEET_GLOBAL_ENROLL_SECRET
@@ -28,6 +53,7 @@ org_settings:
     deferred_save_host: false
     enable_analytics: true
     live_query_disabled: false
+    query_report_cap: 0
     query_reports_disabled: false
     scripts_disabled: false
     server_url: https://fleet.skyreach.dev
@@ -35,48 +61,41 @@ org_settings:
     enable_jit_provisioning: false
     enable_sso: false
     enable_sso_idp_login: false
-    entity_id: ""
-    idp_image_url: ""
-    idp_name: ""
-    metadata: ""
-    metadata_url: ""
+    entity_id:
+    idp_image_url:
+    idp_name:
+    metadata:
+    metadata_url:
   webhook_settings:
     activities_webhook:
-      destination_url: ""
+      destination_url:
       enable_activities_webhook: false
     failing_policies_webhook:
-      destination_url: ""
+      destination_url:
       enable_failing_policies_webhook: false
       host_batch_size: 0
-      policy_ids: []
+      policy_ids:
     host_status_webhook:
       days_count: 0
-      destination_url: ""
+      destination_url:
       enable_host_status_webhook: false
       host_percentage: 0
-    interval: 360m0s 
+    interval: 24h0m0s
     vulnerabilities_webhook:
-      destination_url: ""
+      destination_url:
       enable_vulnerabilities_webhook: false
       host_batch_size: 0
-  yara_rules: []
-policies: 
+  yara_rules:
+policies:
 queries:
-  - path: ./lib/all/queries/collect-fleetd-information.yml
-  - path: ./lib/all/queries/collect-operating-system-information.yml
-  - path: ./lib/all/queries/collect-known-vulnerable-chrome-extensions.yml
-  - path: ./lib/macos/queries/detect-apns-certificate.yml
-controls: 
-  enable_disk_encryption: true
-  macos_migration:
-    enable: true
-    mode: voluntary
-  windows_enabled_and_configured: true
-  windows_migration_enabled: true
-labels:
-  - path: ./lib/all/labels/arm-based-windows-hosts.yml
-  - path: ./lib/all/labels/debian-based-linux-hosts.yml
-  - path: ./lib/all/labels/rpm-based-linux-hosts.yml
-  - path: ./lib/all/labels/virtual-machines.yml
-  - path: ./lib/all/labels/x86-based-windows-hosts.yml
-  - path: ./lib/all/labels/apple-silicon-macos-hosts.yml
+- automations_enabled: false
+  description: Collects operating system information from all devices enrolled in
+    Fleet
+  discard_data: false
+  interval: 300
+  logging: snapshot
+  min_osquery_version:
+  name: Collect operating system information
+  observer_can_run: true
+  platform: darwin,linux,windows
+  query: SELECT * FROM os_version;

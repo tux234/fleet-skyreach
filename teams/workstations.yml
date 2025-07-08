@@ -1,7 +1,20 @@
 agent_options:
-  path: ../lib/all/agent-options/agent-options.yml
+  config:
+    decorators:
+      load:
+      - SELECT uuid AS host_uuid FROM system_info;
+      - SELECT hostname AS hostname FROM system_info;
+    options:
+      disable_distributed: false
+      distributed_interval: 10
+      distributed_plugin: tls
+      distributed_tls_max_attempts: 3
+      logger_tls_endpoint: /api/osquery/log
+      logger_tls_period: 10
+      pack_delimiter: /
+  overrides:
 controls:
-  enable_disk_encryption: true 
+  enable_disk_encryption: false
   ios_updates:
     deadline:
     minimum_version:
@@ -9,67 +22,17 @@ controls:
     deadline:
     minimum_version:
   macos_updates:
-    deadline: 2024-12-31
-    minimum_version: 15.5
+    deadline:
+    minimum_version:
   scripts:
-    # Linux scripts
-    - path: ../lib/linux/scripts/change-password-linux.sh
-    - path: ../lib/linux/scripts/install-fleet-desktop-required-extension.sh
-    - path: ../lib/linux/scripts/uninstall-fleetd-linux.sh
-
-    # macOS scripts
-    - path: ../lib/macos/scripts/collect-fleetd-logs.sh
-    - path: ../lib/macos/scripts/system-maintenance.sh
-
-    # Windows scripts
-    - path: ../lib/windows/scripts/create-admin-user.ps1
-    - path: ../lib/windows/scripts/default-exe-install-script.ps1
-    - path: ../lib/windows/scripts/enable-ms-defender.ps1
-    - path: ../lib/windows/scripts/install-bitdefender.ps1
-    - path: ../lib/windows/scripts/turn-off-mdm.ps1
-    - path: ../lib/windows/scripts/uninstall-fleetd-windows.ps1
-
   windows_enabled_and_configured: true
   windows_updates:
-    deadline_days: 7
-    grace_period_days: 1
+    deadline_days:
+    grace_period_days:
 name: Workstations
 policies:
-  # macOS policies
-  - path: ../lib/macos/policies/disk-encryption-check.yml
-  - path: ../lib/macos/policies/all-software-updates-installed.yml
-  - path: ../lib/macos/policies/latest-macos.yml
-  
-  # Windows policies
-  - path: ../lib/windows/policies/disk-encryption-check.yml
-  - path: ../lib/windows/policies/all-windows-updates-installed.yml
-  - path: ../lib/windows/policies/antivirus-signatures-up-to-date.yml
-  
-  # Linux policies
-  - path: ../lib/linux/policies/disk-encryption-check.yml
-  - path: ../lib/linux/policies/check-fleet-desktop-extension-fedora-debian.yml
 queries:
-  # Cross-platform queries for system information
-  - path: ../lib/all/queries/collect-fleetd-information.yml
-  - path: ../lib/all/queries/collect-known-vulnerable-chrome-extensions.yml
-  - path: ../lib/all/queries/collect-operating-system-information.yml
-  
-  # macOS queries
-  - path: ../lib/macos/queries/detect-apns-certificate.yml
-  - path: ../lib/macos/queries/detect-apple-intelligence.yml
-  
-  # Windows queries
-  - path: ../lib/windows/queries/all-arm-hosts.yml
-  - path: ../lib/windows/queries/all-x86-hosts.yml
-  
-  # Linux queries
-  - path: ../lib/linux/queries/all-deb-hosts.yml
-  - path: ../lib/linux/queries/all-rpm-hosts.yml
 software:
-  # Platform-specific software packages will be defined in separate files
-  # - path: ../lib/macos/software/
-  # - path: ../lib/windows/software/
-  # - path: ../lib/linux/software/
 team_settings:
   features:
     enable_host_users: true
@@ -78,19 +41,14 @@ team_settings:
     host_expiry_enabled: false
     host_expiry_window: 0
   integrations:
-    conditional_access_enabled: true
+    conditional_access_enabled:
     google_calendar:
-      enable_calendar_events: false
-      webhook_url: ""
   secrets:
-  - secret: $FLEET_WORKSTATIONS_ENROLL_SECRET 
+  - secret: $FLEET_WORKSTATIONS_ENROLL_SECRET
   webhook_settings:
     failing_policies_webhook:
-      destination_url: ""
+      destination_url:
       enable_failing_policies_webhook: false
       host_batch_size: 0
-      policy_ids: []
+      policy_ids:
     host_status_webhook:
-      destination_url: ""
-      enable_host_status_webhook: false
-      days_count: 0
