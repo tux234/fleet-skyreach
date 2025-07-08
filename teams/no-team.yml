@@ -21,6 +21,7 @@ controls:
     grace_period_days: 0
 name: No team
 policies: []
+software:
 queries: []
 agent_options:
 team_settings:
