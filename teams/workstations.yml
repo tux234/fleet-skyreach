@@ -18,7 +18,7 @@ controls:
     grace_period_days:
 name: Workstations
 policies:
- - path: ../lib/macos/policies/*
+ - path: ../lib/macos/policies/*.yml
 queries:
 software:
 team_settings:
