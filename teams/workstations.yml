@@ -12,6 +12,23 @@ controls:
     deadline: 2024-12-31
     minimum_version: 15.5
   scripts:
+    # Linux scripts
+    - path: ../lib/linux/scripts/change-password-linux.sh
+    - path: ../lib/linux/scripts/install-fleet-desktop-required-extension.sh
+    - path: ../lib/linux/scripts/uninstall-fleetd-linux.sh
+
+    # macOS scripts
+    - path: ../lib/macos/scripts/collect-fleetd-logs.sh
+    - path: ../lib/macos/scripts/system-maintenance.sh
+
+    # Windows scripts
+    - path: ../lib/windows/scripts/create-admin-user.ps1
+    - path: ../lib/windows/scripts/default-exe-install-script.ps1
+    - path: ../lib/windows/scripts/enable-ms-defender.ps1
+    - path: ../lib/windows/scripts/install-bitdefender.ps1
+    - path: ../lib/windows/scripts/turn-off-mdm.ps1
+    - path: ../lib/windows/scripts/uninstall-fleetd-windows.ps1
+
   windows_enabled_and_configured: true
   windows_updates:
     deadline_days: 7
@@ -38,7 +55,6 @@ queries:
   - path: ../lib/all/queries/collect-operating-system-information.yml
   
   # macOS queries
-  - path: ../lib/macos/queries/collect-macos-compatibility-data.yml
   - path: ../lib/macos/queries/detect-apns-certificate.yml
   - path: ../lib/macos/queries/detect-apple-intelligence.yml
   
