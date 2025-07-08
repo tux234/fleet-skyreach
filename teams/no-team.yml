@@ -36,7 +36,7 @@ team_settings:
     google_calendar:
       enable_calendar_events: false
       webhook_url: ""
-  secrets: []
+  secrets: $FLEET_GLOBAL_ENROLL_SECRET
   webhook_settings:
     failing_policies_webhook:
       destination_url: ""
