@@ -1,4 +1,6 @@
 name: No team
-policies:
-controls:
-software:
+policies: []
+queries: []
+agent_options: {}
+controls: {}
+software: []
