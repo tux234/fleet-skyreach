@@ -23,7 +23,6 @@ name: No team
 policies: []
 queries: []
 agent_options:
-software: []
 team_settings:
   features:
     enable_host_users: false
