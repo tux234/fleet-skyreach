@@ -60,7 +60,7 @@ org_settings:
       enable_vulnerabilities_webhook: false
       host_batch_size: 0
   yara_rules: []
-policies: []
+policies: 
 queries:
   - path: ./lib/all/queries/collect-fleetd-information.yml
   - path: ./lib/all/queries/collect-operating-system-information.yml
@@ -80,4 +80,3 @@ labels:
   - path: ./lib/all/labels/virtual-machines.yml
   - path: ./lib/all/labels/x86-based-windows-hosts.yml
   - path: ./lib/all/labels/apple-silicon-macos-hosts.yml
-software: []

@@ -3,11 +3,11 @@ agent_options:
 controls:
   enable_disk_encryption: true 
   ios_updates:
-    deadline: ""
-    minimum_version: ""
+    deadline:
+    minimum_version:
   ipados_updates:
-    deadline: ""
-    minimum_version: ""
+    deadline:
+    minimum_version:
   macos_updates:
     deadline: 2024-12-31
     minimum_version: 15.5
@@ -65,7 +65,7 @@ queries:
   # Linux queries
   - path: ../lib/linux/queries/all-deb-hosts.yml
   - path: ../lib/linux/queries/all-rpm-hosts.yml
-software: []
+software:
   # Platform-specific software packages will be defined in separate files
   # - path: ../lib/macos/software/
   # - path: ../lib/windows/software/
