@@ -1,10 +1,49 @@
-# Teams are available in Fleet Premium.
-
-# This file updates policies, controls, and software for hosts assigned to "No team."
-
-# To update queries and agent options for hosts assigned to "No team," use the default.yml file.
-
+controls:
+  enable_disk_encryption: false
+  ios_updates:
+    deadline: ""
+    minimum_version: ""
+  ipados_updates:
+    deadline: ""
+    minimum_version: ""
+  macos_migration:
+    enable: false
+    mode: ""
+    webhook_url: ""
+  macos_updates:
+    deadline: ""
+    minimum_version: ""
+  scripts: []
+  windows_enabled_and_configured: true
+  windows_migration_enabled: true
+  windows_updates:
+    deadline_days: 0
+    grace_period_days: 0
 name: No team
-policies:
-controls: # This cannot be set here and in default.yml
-software:
+policies: []
+queries: []
+agent_options:
+software: []
+team_settings:
+  features:
+    enable_host_users: false
+    enable_software_inventory: false
+  host_expiry_settings:
+    host_expiry_enabled: false
+    host_expiry_window: 0
+  integrations:
+    conditional_access_enabled: false
+    google_calendar:
+      enable_calendar_events: false
+      webhook_url: ""
+  secrets: []
+  webhook_settings:
+    failing_policies_webhook:
+      destination_url: ""
+      enable_failing_policies_webhook: false
+      host_batch_size: 0
+      policy_ids: []
+    host_status_webhook:
+      destination_url: ""
+      enable_host_status_webhook: false
+      days_count: 0

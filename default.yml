@@ -1,22 +1,83 @@
-# For Fleet Free:
-# - This file updates policies, queries, agent_options, and controls for all hosts.
-
-# For Fleet Premium:
-# - This file updates policies and queries that run on all hosts ("All teams").
-# - Remove "controls" and add this to your YAML files in teams/ instead.
-
-policies:
-queries:
 agent_options:
-  path: ./lib/agent-options.yml
-controls: # This cannot be set here and in no-team.yml
+  path: ./lib/all/agent-options/agent-options.yml
 org_settings:
-  server_settings:
-    server_url: $FLEET_URL
-  org_info:
-    org_name: Fleet
-  secrets:
-    - secret: "$FLEET_GLOBAL_ENROLL_SECRET"
   features:
     enable_host_users: true
     enable_software_inventory: true
+  fleet_desktop:
+    transparency_url: https://fleetdm.com/transparency
+  host_expiry_settings:
+    host_expiry_enabled: false
+  integrations:
+    google_calendar:
+      enable_calendar_events: false
+      webhook_url: ""
+  mdm:
+    apple_bm_default_team: ""
+    apple_bm_terms_expired: false
+    apple_bm_enabled_and_configured: false
+  org_info:
+    contact_url: https://fleetdm.com/company/contact
+    org_logo_url: https://static.wikia.nocookie.net/eberron/images/b/bf/Dragonmarked_House_COA_Cannith.jpg
+    org_logo_url_light_background: ""
+    org_name: House Cannith
+  secrets:
+  - secret: $FLEET_GLOBAL_ENROLL_SECRET
+  server_settings:
+    ai_features_disabled: false
+    deferred_save_host: false
+    enable_analytics: true
+    live_query_disabled: false
+    query_reports_disabled: false
+    scripts_disabled: false
+    server_url: https://fleet.skyreach.dev
+  sso_settings:
+    enable_jit_provisioning: false
+    enable_sso: false
+    enable_sso_idp_login: false
+    entity_id: ""
+    idp_image_url: ""
+    idp_name: ""
+    metadata: ""
+    metadata_url: ""
+  webhook_settings:
+    activities_webhook:
+      destination_url: ""
+      enable_activities_webhook: false
+    failing_policies_webhook:
+      destination_url: ""
+      enable_failing_policies_webhook: false
+      host_batch_size: 0
+      policy_ids: []
+    host_status_webhook:
+      days_count: 0
+      destination_url: ""
+      enable_host_status_webhook: false
+      host_percentage: 0
+    interval: 360m0s 
+    vulnerabilities_webhook:
+      destination_url: ""
+      enable_vulnerabilities_webhook: false
+      host_batch_size: 0
+  yara_rules: []
+policies: 
+queries:
+  - path: ./lib/all/queries/collect-fleetd-information.yml
+  - path: ./lib/all/queries/collect-operating-system-information.yml
+  - path: ./lib/all/queries/collect-known-vulnerable-chrome-extensions.yml
+  - path: ./lib/macos/queries/detect-apns-certificate.yml
+controls: 
+  enable_disk_encryption: true
+  macos_migration:
+    enable: true
+    mode: voluntary
+    webhook_url: $FLEET_MACOS_MIGRATION_WEBHOOK_URL
+  windows_enabled_and_configured: true
+  windows_migration_enabled: true
+labels:
+  - path: ./lib/all/labels/arm-based-windows-hosts.yml
+  - path: ./lib/all/labels/debian-based-linux-hosts.yml
+  - path: ./lib/all/labels/rpm-based-linux-hosts.yml
+  - path: ./lib/all/labels/virtual-machines.yml
+  - path: ./lib/all/labels/x86-based-windows-hosts.yml
+  - path: ./lib/all/labels/apple-silicon-macos-hosts.yml
