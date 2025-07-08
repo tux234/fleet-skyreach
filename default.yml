@@ -71,7 +71,6 @@ controls:
   macos_migration:
     enable: true
     mode: voluntary
-    webhook_url: $FLEET_MACOS_MIGRATION_WEBHOOK_URL
   windows_enabled_and_configured: true
   windows_migration_enabled: true
 labels:
