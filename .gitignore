@@ -166,7 +166,7 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+# lib/ - Fleet GitOps lib directory should NOT be ignored
 lib64/
 parts/
 sdist/

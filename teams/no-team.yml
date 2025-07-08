@@ -1,3 +1,5 @@
+agent_options:
+  path: ../lib/all/agent-options/agent-options.yml
 controls:
   enable_disk_encryption: false
   ios_updates:
