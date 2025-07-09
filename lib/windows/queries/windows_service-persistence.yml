@@ -1,0 +1,18 @@
+- name: Lists all installed services configured to start automatically at boot
+  automations_enabled: false
+  description: Lists all installed services configured to start automatically at boot - ATT&CK T1050
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: windows
+  query: SELECT * FROM services WHERE start_type='DEMAND_START' OR start_type='AUTO_START';
+- name: Snapshot Services query
+  automations_enabled: false
+  description: Snapshot Services query
+  discard_data: false
+  interval: 28800
+  logging: 
+  observer_can_run: false
+  platform: windows
+  query: SELECT * FROM services;

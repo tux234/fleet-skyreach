@@ -1,0 +1,9 @@
+- name: Powershell script blocks reconstructed to their full script content, this table requires script block logging to be enabled.
+  automations_enabled: false
+  description: Powershell script blocks reconstructed to their full script content, this table requires script block logging to be enabled. - ATT&CK T1086,T1064
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: windows
+  query: select * from powershell_events;

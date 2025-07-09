@@ -1,0 +1,27 @@
+- name: Lists all chrome extensions
+  automations_enabled: false
+  description: Lists all chrome extensions - ATT&CK T1176
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: linux
+  query: SELECT u.username, ce.* FROM users u CROSS JOIN chrome_extensions ce USING (uid);
+- name: Lists all Firefox addons
+  automations_enabled: false
+  description: Lists all Firefox addons - ATT&CK T1176
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: linux
+  query: SELECT u.username, ce.* FROM users u CROSS JOIN firefox_addons ce USING (uid);
+- name: Lists all Opera extensions
+  automations_enabled: false
+  description: Lists all Opera extensions - ATT&CK T1176
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: linux
+  query: SELECT u.username, ce.* FROM users u CROSS JOIN opera_extensions ce USING (uid);

@@ -1,0 +1,54 @@
+- name: Check mount on the host
+  automations_enabled: false
+  description: Check mount on the host - ATT&CK T1025,T1052
+  discard_data: false
+  interval: 600
+  logging: 
+  observer_can_run: false
+  platform: 
+  query: SELECT device, device_alias, flags, path,type from mounts;
+- name: List linux files that are setuid-enabled
+  automations_enabled: false
+  description: List linux files that are setuid-enabled
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: 
+  query: select * from suid_bin;
+- name: Linux sudoers information
+  automations_enabled: false
+  description: Linux sudoers information - ATT&CK T1169,T1206
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: 
+  query: select * from sudoers;
+- name: Check any bash reverse shell forwarded to the attacker
+  automations_enabled: false
+  description: Check any bash reverse shell forwarded to the attacker - ATT&CK T1169,T1206
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: 
+  query: SELECT hash.sha1, fi.path, fi.filename, datetime(fi.btime, 'unixepoch', 'UTC') as btime, datetime(fi.atime, 'unixepoch', 'UTC') as atime, datetime(fi.ctime, 'unixepoch', 'UTC') as ctime, datetime(fi.mtime, 'unixepoch', 'UTC') as mtime FROM hash JOIN file fi USING (path) where (fi.path like '/etc/sudoers') AND type='regular';
+- name: Check any bash reverse shell forwarded to the attacker
+  automations_enabled: false
+  description: Check any bash reverse shell forwarded to the attacker - ATT&CK T1169,T1206
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: 
+  query: SELECT * FROM processes WHERE cmdline LIKE '/bin/bash -i >& /dev/tcp/%';
+- name: Check USB device on the host
+  automations_enabled: false
+  description: Check USB device on the host - ATT&CK T1052
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: 
+  query: SELECT * FROM usb_devices;

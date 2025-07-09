@@ -1,0 +1,72 @@
+- name: Symantec Endpoint Protection service Status change
+  automations_enabled: false
+  description: Symantec Endpoint Protection service Status change - ATT&CK T1089
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: windows
+  query: SELECT * FROM services WHERE name = 'SAVAdminService' AND status != 'RUNNING';
+- name: Snapshot Services query
+  automations_enabled: false
+  description: Snapshot Services query
+  discard_data: false
+  interval: 28800
+  logging: 
+  observer_can_run: false
+  platform: windows
+  query: SELECT * FROM services;
+- name: Symantec Endpoint Protection service Status change
+  automations_enabled: false
+  description: Symantec Endpoint Protection service Status change - ATT&CK T1089
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: windows
+  query: SELECT * FROM services WHERE name = 'SavService' AND status != 'RUNNING';
+- name: Symantec Endpoint Protection service Status change
+  automations_enabled: false
+  description: Symantec Endpoint Protection service Status change - ATT&CK T1089
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: windows
+  query: SELECT * FROM services WHERE name = 'SepMasterService' AND status != 'RUNNING';
+- name: Windows Defender service Status change
+  automations_enabled: false
+  description: Windows Defender service Status change - ATT&CK T1089
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: windows
+  query: SELECT * FROM services WHERE name = 'WinDefend' AND status != 'RUNNING';
+- name: Windows Firewall service Status change
+  automations_enabled: false
+  description: Windows Firewall service Status change - ATT&CK T1089
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: windows
+  query: SELECT * FROM services WHERE name = 'MpsSvc' AND status != 'RUNNING';
+- name: Windows Security Service Status change
+  automations_enabled: false
+  description: Windows Security Service Status change - ATT&CK T1089
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: windows
+  query: SELECT * FROM services WHERE name = 'wscsvc' AND status != 'RUNNING';
+- name: Windows Update Service Status change
+  automations_enabled: false
+  description: Windows Update Service Status change - ATT&CK T1089
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: windows
+  query: SELECT * FROM services WHERE name = 'wuauserv' AND status != 'RUNNING';

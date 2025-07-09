@@ -1,0 +1,9 @@
+- name: List Local job scheduling with Cron
+  automations_enabled: false
+  description: List Local job scheduling with Cron - ATT&CK T1168
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: linux
+  query: select command, path from crontab;

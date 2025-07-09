@@ -1,0 +1,36 @@
+- name: Snapshot Lists all chrome extensions
+  automations_enabled: false
+  description: Snapshot Lists all chrome extensions - ATT&CK T1176
+  discard_data: false
+  interval: 28800
+  logging: 
+  observer_can_run: false
+  platform: windows
+  query: select u.username, ce.name,ce.identifier,ce.version,ce.description,ce.locale,ce.update_url,ce.author,ce.persistent,ce.path from chrome_extensions ce LEFT JOIN users u ON ce.uid = u.uid;
+- name: Snapshot Lists all internet explorer extensions
+  automations_enabled: false
+  description: Snapshot Lists all internet explorer extensions - ATT&CK T1176
+  discard_data: false
+  interval: 28800
+  logging: 
+  observer_can_run: false
+  platform: windows
+  query:  select * from  ie_extensions;
+- name: Lists all chrome extensions
+  automations_enabled: false
+  description: Lists all chrome extensions - ATT&CK T1176
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: windows
+  query: select u.username, ce.name,ce.identifier,ce.version,ce.description,ce.locale,ce.update_url,ce.author,ce.persistent,ce.path from chrome_extensions ce LEFT JOIN users u ON ce.uid = u.uid;
+- name: Lists all internet explorer extensions
+  automations_enabled: false
+  description: Lists all internet explorer extensions - ATT&CK T1176
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: windows
+  query: select * from ie_extensions;

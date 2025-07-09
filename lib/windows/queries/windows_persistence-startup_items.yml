@@ -1,0 +1,18 @@
+- name: Snapshot Windows Startup Items Osquery predefined query
+  automations_enabled: false
+  description: Snapshot Windows Startup Items Osquery predefined query - ATT&CK T1060
+  discard_data: false
+  interval: 28800
+  logging: 
+  observer_can_run: false
+  platform: windows
+  query: select * from startup_items;
+- name: Windows Startup Items Osquery predefined query
+  automations_enabled: false
+  description: Windows Startup Items Osquery predefined query - ATT&CK T1060
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: windows
+  query: select * from startup_items;
