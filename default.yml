@@ -86,6 +86,8 @@ queries:
   observer_can_run: true
   platform: darwin,linux,windows
   query: SELECT * FROM os_version;
+- path: ./lib/all/queries/network_monitoring.yml
+- path: ./lib/all/queries/browser_extensions.yml
 - path: ./lib/linux/queries/linux_kernel_modules_and_extensions.yml
 - path: ./lib/linux/queries/linux_running_processes.yml
 - path: ./lib/linux/queries/linux_local_job_scheduling.yml

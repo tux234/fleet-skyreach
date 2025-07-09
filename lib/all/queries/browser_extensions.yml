@@ -1,0 +1,9 @@
+- name: Lists all chrome extensions
+  automations_enabled: false
+  description: Lists all chrome extensions - ATT&CK T1176
+  discard_data: false
+  interval: 3600
+  logging: 
+  observer_can_run: false
+  platform: windows,linux
+  query: select u.username, ce.name, ce.identifier, ce.version, ce.description, ce.locale, ce.update_url, ce.author, ce.persistent, ce.path from chrome_extensions ce LEFT JOIN users u ON ce.uid = u.uid;
