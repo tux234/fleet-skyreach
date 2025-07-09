@@ -1,4 +1,4 @@
-- name: Lists all of the tasks in the Windows task scheduler
+- name: Lists all of the tasks in the Windows task scheduler - Task Monitor
   automations_enabled: false
   description: Lists all of the tasks in the Windows task scheduler - ATT&CK T1053
   discard_data: false
@@ -7,7 +7,7 @@
   observer_can_run: false
   platform: windows
   query: select name,action,path,enabled,datetime(next_run_time,'unixepoch','UTC') from scheduled_tasks;
-- name: Lists all of the tasks in the Windows task scheduler
+- name: Lists all of the tasks in the Windows task scheduler - Task Monitor
   automations_enabled: false
   description: Lists all of the tasks in the Windows task scheduler
   discard_data: false

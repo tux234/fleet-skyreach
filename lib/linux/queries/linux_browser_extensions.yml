@@ -1,4 +1,4 @@
-- name: Lists all chrome extensions
+- name: Lists all chrome extensions - Linux
   automations_enabled: false
   description: Lists all chrome extensions - ATT&CK T1176
   discard_data: false

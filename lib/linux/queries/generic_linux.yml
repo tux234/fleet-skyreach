@@ -25,7 +25,7 @@
   observer_can_run: false
   platform: 
   query: select * from sudoers;
-- name: Check any bash reverse shell forwarded to the attacker
+- name: Check any bash reverse shell forwarded to the attacker - Sudoers File Analysis
   automations_enabled: false
   description: Check any bash reverse shell forwarded to the attacker - ATT&CK T1169,T1206
   discard_data: false

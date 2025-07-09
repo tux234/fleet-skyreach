@@ -1,4 +1,4 @@
-- name: Symantec Endpoint Protection service Status change
+- name: Symantec Endpoint Protection service Status change - Service Monitor
   automations_enabled: false
   description: Symantec Endpoint Protection service Status change - ATT&CK T1089
   discard_data: false
@@ -7,7 +7,7 @@
   observer_can_run: false
   platform: windows
   query: SELECT * FROM services WHERE name = 'SAVAdminService' AND status != 'RUNNING';
-- name: Snapshot Services query
+- name: Snapshot Services query - Critical Service Status
   automations_enabled: false
   description: Snapshot Services query
   discard_data: false
@@ -16,7 +16,7 @@
   observer_can_run: false
   platform: windows
   query: SELECT * FROM services;
-- name: Symantec Endpoint Protection service Status change
+- name: Symantec Endpoint Protection service Status change - Service Monitor
   automations_enabled: false
   description: Symantec Endpoint Protection service Status change - ATT&CK T1089
   discard_data: false
@@ -25,7 +25,7 @@
   observer_can_run: false
   platform: windows
   query: SELECT * FROM services WHERE name = 'SavService' AND status != 'RUNNING';
-- name: Symantec Endpoint Protection service Status change
+- name: Symantec Endpoint Protection service Status change - Service Monitor
   automations_enabled: false
   description: Symantec Endpoint Protection service Status change - ATT&CK T1089
   discard_data: false

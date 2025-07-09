@@ -1,4 +1,4 @@
-- name: Local system users.
+- name: Local system users - User Analysis
   automations_enabled: false
   description: Local system users. - ATT&CK T1116,T1130
   discard_data: false
@@ -7,7 +7,7 @@
   observer_can_run: false
   platform: windows
   query: select * from certificates;
-- name: Users snapshot query
+- name: Users snapshot query - User Snapshot
   automations_enabled: false
   description: Users snapshot query - ATT&CK T1116,T1130
   discard_data: false
@@ -25,7 +25,7 @@
   observer_can_run: false
   platform: windows
   query: select * from logged_in_users;
-- name: Local system users.
+- name: Local system users - User Analysis
   automations_enabled: false
   description: Local system users.
   discard_data: false
@@ -34,7 +34,7 @@
   observer_can_run: false
   platform: windows
   query: SELECT * FROM users;
-- name: Local system users.
+- name: Local system users - User Analysis
   automations_enabled: false
   description: Local system users.
   discard_data: false
@@ -70,7 +70,7 @@
   observer_can_run: false
   platform: windows
   query: SELECT * FROM uptime;
-- name: Local system users.
+- name: Local system users - User Analysis
   automations_enabled: false
   description: Local system users. - ATT&CK T1136,T1078
   discard_data: false
@@ -79,7 +79,7 @@
   observer_can_run: false
   platform: windows
   query: SELECT * FROM users;
-- name: Users snapshot query
+- name: Users snapshot query - User Snapshot
   automations_enabled: false
   description: Users snapshot query - ATT&CK T1136,T1078
   discard_data: false

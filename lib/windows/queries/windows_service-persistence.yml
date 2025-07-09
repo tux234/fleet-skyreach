@@ -7,7 +7,7 @@
   observer_can_run: false
   platform: windows
   query: SELECT * FROM services WHERE start_type='DEMAND_START' OR start_type='AUTO_START';
-- name: Snapshot Services query
+- name: Snapshot Services query - Service Persistence"
   automations_enabled: false
   description: Snapshot Services query
   discard_data: false

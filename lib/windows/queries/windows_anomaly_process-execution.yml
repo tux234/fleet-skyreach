@@ -169,7 +169,7 @@
   observer_can_run: false
   platform: windows
   query: select * from file WHERE directory = 'C:\Windows\Prefetch\' and filename like '%regedit%';
-- name: POWERSHELL Execute, is a powerful interactive command-line interface and scripting environment included in the Windows operating system
+- name: POWERSHELL Execute, is a powerful interactive command-line interface and scripting environment included in the Windows operating system - Regsvr32 Detection
   automations_enabled: false
   description: POWERSHELL Execute, is a powerful interactive command-line interface and scripting environment included in the Windows operating system - ATT&CK T1117
   discard_data: false
@@ -196,7 +196,7 @@
   observer_can_run: false
   platform: windows
   query: select * from file WHERE directory = 'C:\Windows\Prefetch\' and filename like '%sc%';
-- name: Schtasks Execute, usaullay used to create a scheduled task
+- name: Schtasks Execute, usaullay used to create a scheduled task - Secondary Detection
   automations_enabled: false
   description: Schtasks Execute, usaullay used to create a scheduled task - ATT&CK T1053,S0111
   discard_data: false
