@@ -86,3 +86,29 @@ queries:
   observer_can_run: true
   platform: darwin,linux,windows
   query: SELECT * FROM os_version;
+- path: ./lib/linux/queries/linux_kernel_modules_and_extensions.yml
+- path: ./lib/linux/queries/linux_running_processes.yml
+- path: ./lib/linux/queries/linux_local_job_scheduling.yml
+- path: ./lib/linux/queries/linux_home_root_hidden_file_directory.yml
+- path: ./lib/linux/queries/linux_users_check.yml
+- path: ./lib/linux/queries/linux_network_connections.yml
+- path: ./lib/linux/queries/linux_browser_extensions.yml
+- path: ./lib/linux/queries/generic_linux.yml
+- path: ./lib/linux/queries/linux_command_execution.yml
+- path: ./lib/linux/queries/linux_relevant_folder_check.yml
+- path: ./lib/windows/queries/windows-incorrect_path_process.yml
+- path: ./lib/windows/queries/windows_service-persistence.yml
+- path: ./lib/windows/queries/windows_critical_service_status.yml
+- path: ./lib/windows/queries/windows_scheduled_tasks.yml
+- path: ./lib/windows/queries/windows-incorrect_parent_process.yml
+- path: ./lib/windows/queries/windows_generic_detection.yml
+- path: ./lib/windows/queries/windows_powershell_events.yml
+- path: ./lib/windows/queries/windows-registry-monitoring.yml
+- path: ./lib/windows/queries/windows_anomaly_process-execution.yml
+- path: ./lib/windows/queries/windows_persistence-startup_items.yml
+- path: ./lib/windows/queries/windows_browsere-extensions.yml
+- path: ./lib/windows/queries/windows_new_file_relevant_infection_path.yml
+- path: ./lib/windows/queries/windows_process_no_disk_binary.yml
+- path: ./lib/windows/queries/windows_system_running_processes.yml
+- path: ./lib/windows/queries/windows_new_dir_relevant_infection_path.yml
+- path: ./lib/windows/queries/network_connection_listening.yml
