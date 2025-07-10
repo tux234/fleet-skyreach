@@ -114,3 +114,5 @@ queries:
 - path: ./lib/windows/queries/windows_system_running_processes.yml
 - path: ./lib/windows/queries/windows_new_dir_relevant_infection_path.yml
 - path: ./lib/windows/queries/network_connection_listening.yml
+  labels:
+    - path: ./lib/all/labels/all-parallels-vms.yml

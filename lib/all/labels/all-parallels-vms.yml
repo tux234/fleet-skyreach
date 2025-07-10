@@ -1,0 +1,13 @@
+- name: All Parallels VMs
+  description: All hosts running in Parallels
+  query: |
+   SELECT
+    hostname,
+    hardware_model,
+    hardware_vendor,
+    cpu_brand
+   FROM
+    system_info
+   WHERE
+    hardware_vendor LIKE '%Parallels%';
+  label_membership_type: dynamic
