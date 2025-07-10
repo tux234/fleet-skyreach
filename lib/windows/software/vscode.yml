@@ -1,0 +1,3 @@
+fleet_maintained_apps:
+  - slug: visual-studio-code/windows
+    self_service: true

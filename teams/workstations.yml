@@ -21,6 +21,8 @@ policies:
  - path: ../lib/macos/policies/cis-benchmark-macos15.yml
 queries:
 software:
+ packages:
+   - path: ../lib/windows/software/vscode.yml
 team_settings:
   features:
     enable_host_users: true
