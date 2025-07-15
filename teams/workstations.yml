@@ -24,7 +24,7 @@ queries:
 controls:
  macos_settings:
   custom_settings:
-  - path ../lib/macos/configuration-profiles/tailscale.mobileconfig
+  - path: ../lib/macos/configuration-profiles/tailscale.mobileconfig
 software:
  packages:
   - path: ../lib/macos/software/tailscale.yml
