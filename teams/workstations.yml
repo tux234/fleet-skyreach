@@ -19,8 +19,15 @@ controls:
 name: Workstations
 policies:
  - path: ../lib/macos/policies/cis-benchmark-macos15.yml
+ - path: ../lib/macos/policies/tailscale-installed.yml
 queries:
+controls:
+ macos_settings:
+  custom_settings:
+- path ../lib/macos/configuration-profiles/tailscale.mobileconfig
 software:
+ packages:
+  - path: ../lib/macos/software/tailscale.yml
 team_settings:
   features:
     enable_host_users: true
