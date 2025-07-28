@@ -116,3 +116,13 @@ queries:
  - path: ./lib/windows/queries/network_connection_listening.yml
 labels:
  - path: ./lib/all/labels/all-parallels-vms.yml
+ - path: ./lib/all/labels/arm-based-windows-hosts.yml
+ - path: ./lib/all/labels/debian-based-linux-hosts.yml
+ - path: ./lib/all/labels/macs-with-1password-installed.yml
+ - path: ./lib/all/labels/rpm-based-linux-hosts.yml
+ - path: ./lib/all/labels/virtual-machines.yml
+ - path: ./lib/all/labels/santa-test-devices.yml
+ - path: ./lib/all/labels/x86-based-windows-hosts.yml
+ - path: ./lib/all/labels/apple-silicon-macos-hosts.yml
+ - path: ./lib/all/labels/keynote-installed.yml
+ - path: ./lib/all/labels/macos-compatibility-extension-installed.yml
