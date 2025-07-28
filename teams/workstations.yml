@@ -23,10 +23,16 @@ name: Workstations
 policies:
  - path: ../lib/macos/policies/cis-benchmark-macos15.yml
  - path: ../lib/macos/policies/tailscale-installed.yml
+ - path: ../lib/linux/policies/check-fleet-desktop-extension-fedora-debian.yml
+ - path: ../lib/linux/policies/disk-encryption-check.yml
 queries:
 software:
  packages:
   - path: ../lib/macos/software/tailscale.yml
+  - path: ../lib/linux/software/slack-deb.yml
+  - path: ../lib/linux/software/slack-rpm.yml
+  - path: ../lib/linux/software/zoom-deb.yml
+  - path: ../lib/linux/software/zoom-rpm.yml
 team_settings:
   features:
     enable_host_users: true
