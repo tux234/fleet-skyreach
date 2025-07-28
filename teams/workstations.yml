@@ -33,6 +33,8 @@ software:
   - path: ../lib/linux/software/slack-rpm.yml
   - path: ../lib/linux/software/zoom-deb.yml
   - path: ../lib/linux/software/zoom-rpm.yml
+scripts:
+  - path: ../lib/linux/scripts/install-fleet-desktop-required-extension.sh
 team_settings:
   features:
     enable_host_users: true
