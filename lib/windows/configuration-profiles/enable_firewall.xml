@@ -2,11 +2,11 @@
   <!-- Enable Firewall for Private Profile -->     
   <Item>
     <Meta>
-      <Format xmlns="syncml:metinf">bool</Format>
+      <Format xmlns="syncml:metinf">int</Format>
     </Meta>
     <Target>
       <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/EnableFirewall</LocURI>
     </Target>
-    <Data>true</Data>
+    <Data>-1</Data>
   </Item>
 </Replace>
