@@ -16,6 +16,9 @@ controls:
     minimum_version:
   scripts:
   windows_enabled_and_configured: true
+  windows_settings:
+   custom_settings:
+    - path: ../lib/windows/configuration-profiles/enable_firewall.xml
   windows_updates:
     deadline_days:
     grace_period_days:

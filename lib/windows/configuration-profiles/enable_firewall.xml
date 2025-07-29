@@ -1,0 +1,11 @@
+<Replace>
+    <Item>
+        <Meta>
+            <format xmlns="syncml:metinf">int</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Device/Vendor/MSFT/Firewall/MDMStore/PrivateProfile/EnableFirewall</LocURI>
+        </Target>
+        <Data>true</Data>
+    </Item>
+</Replace>
