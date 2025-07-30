@@ -1,21 +1,11 @@
-<Atomic>
-  <!-- Delete the existing key -->
-  <Delete>
+<Replace>
+  <Item>
+    <Meta>
+      <Format xmlns="syncml:metinf">bool</Format>
+    </Meta>
     <Target>
       <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/EnableFirewall</LocURI>
     </Target>
-  </Delete>
-
-  <!-- Recreate the key with int format -->
-  <Add>
-    <Item>
-      <Meta>
-        <Format xmlns="syncml:metinf">int</Format>
-      </Meta>
-      <Target>
-        <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/EnableFirewall</LocURI>
-      </Target>
-      <Data>-1</Data>
-    </Item>
-  </Add>
-</Atomic>
+    <Data>true</Data>
+  </Item>
+</Replace>
