@@ -1,11 +1,18 @@
+<Delete>
+  <Item>
+    <Target>
+      <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/EnableFirewall</LocURI>
+    </Target>
+  </Item>
+</Delete>
+
 <Replace>
-  <!-- Enable Firewall for Domain Profile -->     
   <Item>
     <Meta>
       <Format xmlns="syncml:metinf">bool</Format>
     </Meta>
     <Target>
-      <LocURI>./Vendor/MSFT/Firewall/MdmStore/DomainProfile/EnableFirewall</LocURI>
+      <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/EnableFirewall</LocURI>
     </Target>
     <Data>true</Data>
   </Item>
