@@ -1,33 +1,10 @@
 <Replace>
-  <!-- Enable Firewall for Private Profile -->
   <Item>
     <Meta>
       <Format xmlns="syncml:metinf">int</Format>
     </Meta>
     <Target>
-      <LocURI>./Vendor/MSFT/Policy/Config/Firewall/PrivateProfileEnableFirewall</LocURI>
-    </Target>
-    <Data>-1</Data> <!-- 1 = Enabled, 0 = Disabled -->
-  </Item>
-
-  <!-- Enable Firewall for Domain Profile -->
-  <Item>
-    <Meta>
-      <Format xmlns="syncml:metinf">int</Format>
-    </Meta>
-    <Target>
-      <LocURI>./Vendor/MSFT/Policy/Config/Firewall/DomainProfileEnableFirewall</LocURI>
-    </Target>
-    <Data>-1</Data>
-  </Item>
-
-  <!-- Enable Firewall for Public Profile -->
-  <Item>
-    <Meta>
-      <Format xmlns="syncml:metinf">int</Format>
-    </Meta>
-    <Target>
-      <LocURI>./Vendor/MSFT/Policy/Config/Firewall/PublicProfileEnableFirewall</LocURI>
+      <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/EnableFirewall</LocURI>
     </Target>
     <Data>-1</Data>
   </Item>
