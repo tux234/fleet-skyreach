@@ -1,11 +1,11 @@
 <Replace>
     <Item>
         <Meta>
-            <Format xmlns="syncml:metinf">int</Format>
+            <Format xmlns="syncml:metinf">bool</Format>
         </Meta>
         <Target>
             <LocURI>./Vendor/MSFT/Firewall/MdmStore/PublicProfile/EnableLogDroppedPackets</LocURI>
         </Target>
-        <Data>0</Data>
+        <Data>false</Data>
     </Item>
 </Replace>

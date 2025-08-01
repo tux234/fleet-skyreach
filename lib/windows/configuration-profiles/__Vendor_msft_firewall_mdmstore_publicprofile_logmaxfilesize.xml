@@ -4,8 +4,8 @@
             <Format xmlns="syncml:metinf">int</Format>
         </Meta>
         <Target>
-            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/DefaultInboundAction</LocURI>
+            <LocURI>./Vendor/msft/firewall/mdmstore/publicprofile/logmaxfilesize</LocURI>
         </Target>
-        <Data>1</Data>
+        <Data>1024</Data>
     </Item>
 </Replace>
