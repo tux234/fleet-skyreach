@@ -19,6 +19,7 @@ controls:
   windows_settings:
    custom_settings:
     - path: ../lib/windows/configuration-profiles/enable_firewall.xml
+    - path: ../lib/windows/configuration-profiles/DefaultInboundAction.xml
   windows_updates:
     deadline_days:
     grace_period_days:
