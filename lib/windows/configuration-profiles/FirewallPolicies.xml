@@ -1,12 +1,12 @@
 <Replace>
     <Item>
         <Meta>
-            <Format xmlns="syncml:metinf">int</Format>
+            <Format xmlns="syncml:metinf">bool</Format>
         </Meta>
         <Target>
             <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/EnableFirewall</LocURI>
         </Target>
-        <Data>1</Data>
+        <Data>true</Data>
     </Item>
 </Replace>
 <Replace>
@@ -188,12 +188,12 @@
 <Replace>
     <Item>
         <Meta>
-            <Format xmlns="syncml:metinf">int</Format>
+            <Format xmlns="syncml:metinf">bool</Format>
         </Meta>
         <Target>
             <LocURI>./Vendor/MSFT/Firewall/MdmStore/PublicProfile/EnableFirewall</LocURI>
         </Target>
-        <Data>1</Data>
+        <Data>true</Data>
     </Item>
 </Replace>
 <Replace>
