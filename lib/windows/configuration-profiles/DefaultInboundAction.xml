@@ -6,6 +6,6 @@
     <Target>
       <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/DefaultInboundAction</LocURI>
     </Target>
-    <Data>true</Data>
+    <Data>1</Data>
   </Item>
 </Replace>
