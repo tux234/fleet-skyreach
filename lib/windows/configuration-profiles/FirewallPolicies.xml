@@ -1,0 +1,374 @@
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">int</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/EnableFirewall</LocURI>
+        </Target>
+        <Data>1</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/AllowLocalIpsecPolicyMerge</LocURI>
+        </Target>
+        <Data>true</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/AllowLocalPolicyMerge</LocURI>
+        </Target>
+        <Data>true</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/AuthAppsAllowUserPrefMerge</LocURI>
+        </Target>
+        <Data>true</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">int</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/DefaultInboundAction</LocURI>
+        </Target>
+        <Data>1</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">int</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/DefaultOutboundAction</LocURI>
+        </Target>
+        <Data>0</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/DisableInboundNotifications</LocURI>
+        </Target>
+        <Data>false</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/DisableStealthMode</LocURI>
+        </Target>
+        <Data>false</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/DisableStealthModeIpsecSecuredPacketExemption</LocURI>
+        </Target>
+        <Data>true</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/DisableUnicastResponsesToMulticastBroadcast</LocURI>
+        </Target>
+        <Data>false</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/EnableLogDroppedPackets</LocURI>
+        </Target>
+        <Data>false</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/EnableLogIgnoredRules</LocURI>
+        </Target>
+        <Data>false</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/EnableLogSuccessConnections</LocURI>
+        </Target>
+        <Data>false</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/GlobalPortsAllowUserPrefMerge</LocURI>
+        </Target>
+        <Data>true</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">chr</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/LogFilePath</LocURI>
+        </Target>
+        <Data><![CDATA[%systemroot%\system32\LogFiles\Firewall\pfirewall.log]]></Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">int</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/LogMaxFileSize</LocURI>
+        </Target>
+        <Data>1024</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/Shielded</LocURI>
+        </Target>
+        <Data>false</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">int</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PublicProfile/EnableFirewall</LocURI>
+        </Target>
+        <Data>1</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PublicProfile/AllowLocalIpsecPolicyMerge</LocURI>
+        </Target>
+        <Data>true</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PublicProfile/AllowLocalPolicyMerge</LocURI>
+        </Target>
+        <Data>true</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PublicProfile/AuthAppsAllowUserPrefMerge</LocURI>
+        </Target>
+        <Data>true</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">int</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PublicProfile/DefaultInboundAction</LocURI>
+        </Target>
+        <Data>1</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">int</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PublicProfile/DefaultOutboundAction</LocURI>
+        </Target>
+        <Data>0</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PublicProfile/DisableInboundNotifications</LocURI>
+        </Target>
+        <Data>false</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PublicProfile/DisableStealthMode</LocURI>
+        </Target>
+        <Data>false</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PublicProfile/DisableStealthModeIpsecSecuredPacketExemption</LocURI>
+        </Target>
+        <Data>true</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PublicProfile/DisableUnicastResponsesToMulticastBroadcast</LocURI>
+        </Target>
+        <Data>false</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PublicProfile/EnableLogDroppedPackets</LocURI>
+        </Target>
+        <Data>false</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PublicProfile/EnableLogIgnoredRules</LocURI>
+        </Target>
+        <Data>false</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PublicProfile/EnableLogSuccessConnections</LocURI>
+        </Target>
+        <Data>false</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PublicProfile/GlobalPortsAllowUserPrefMerge</LocURI>
+        </Target>
+        <Data>true</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">chr</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PublicProfile/LogFilePath</LocURI>
+        </Target>
+        <Data><![CDATA[%systemroot%\system32\LogFiles\Firewall\pfirewall.log]]></Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">int</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PublicProfile/LogMaxFileSize</LocURI>
+        </Target>
+        <Data>1024</Data>
+    </Item>
+</Replace>
+<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">bool</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PublicProfile/Shielded</LocURI>
+        </Target>
+        <Data>false</Data>
+    </Item>
+</Replace>
