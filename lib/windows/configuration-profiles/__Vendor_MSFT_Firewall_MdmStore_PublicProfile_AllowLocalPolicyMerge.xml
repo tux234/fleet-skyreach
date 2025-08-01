@@ -1,0 +1,11 @@
+﻿<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">int</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PublicProfile/AllowLocalPolicyMerge</LocURI>
+        </Target>
+        <Data>1</Data>
+    </Item>
+</Replace>

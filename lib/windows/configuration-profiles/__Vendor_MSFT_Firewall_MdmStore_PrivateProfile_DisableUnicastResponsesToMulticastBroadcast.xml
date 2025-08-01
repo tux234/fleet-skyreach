@@ -1,0 +1,11 @@
+﻿<Replace>
+    <Item>
+        <Meta>
+            <Format xmlns="syncml:metinf">int</Format>
+        </Meta>
+        <Target>
+            <LocURI>./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/DisableUnicastResponsesToMulticastBroadcast</LocURI>
+        </Target>
+        <Data>0</Data>
+    </Item>
+</Replace>

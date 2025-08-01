@@ -18,8 +18,11 @@ controls:
   windows_enabled_and_configured: true
   windows_settings:
    custom_settings:
-    - path: ../lib/windows/configuration-profiles/enable_firewall.xml
-    - path: ../lib/windows/configuration-profiles/DefaultInboundAction.xml
+    - path: ../lib/windows/configuration-profiles/__Vendor_MSFT_Firewall_MdmStore_PrivateProfile_EnableFirewall.xml
+    - path: ../lib/windows/configuration-profiles/__Vendor_MSFT_Firewall_MdmStore_PrivateProfile_DefaultInboundAction.xml
+    - path: ../lib/windows/configuration-profiles/__Vendor_MSFT_Firewall_MdmStore_PrivateProfile_AllowLocalIpsecPolicyMerge.xml
+    - path: ../lib/windows/configuration-profiles/__Vendor_MSFT_Firewall_MdmStore_PrivateProfile_AllowLocalPolicyMerge.xml
+    - path: ../lib/windows/configuration-profiles/__Vendor_MSFT_Firewall_MdmStore_PrivateProfile_AuthAppsAllowUserPrefMerge.xml
   windows_updates:
     deadline_days:
     grace_period_days:
