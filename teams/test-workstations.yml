@@ -25,7 +25,7 @@ controls:
     grace_period_days:
   scripts:
   - path: ../lib/linux/scripts/install-fleet-desktop-required-extension.sh 
-name: Workstations
+name: Test Linux Encryption 
 policies:
  - path: ../lib/macos/policies/cis-benchmark-macos15.yml
  - path: ../lib/macos/policies/tailscale-installed.yml
