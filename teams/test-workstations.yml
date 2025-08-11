@@ -1,0 +1,60 @@
+agent_options:
+  path: ../lib/all/agent-options/agent-options.yml
+controls:
+  enable_disk_encryption: true 
+  ios_updates:
+    deadline:
+    minimum_version:
+  ipados_updates:
+    deadline:
+    minimum_version:
+  macos_settings:
+    custom_settings:
+    - path: ../lib/macos/configuration-profiles/tailscale.mobileconfig
+    - path: ../lib/macos/configuration-profiles/Enforce macOS Updates.mobileconfig
+  macos_updates:
+    deadline:
+    minimum_version:
+  scripts:
+  windows_enabled_and_configured: true
+  windows_settings:
+   custom_settings:
+    - path: ../lib/windows/configuration-profiles/FirewallPolicies.xml
+  windows_updates:
+    deadline_days:
+    grace_period_days:
+  scripts:
+  - path: ../lib/linux/scripts/install-fleet-desktop-required-extension.sh 
+name: Workstations
+policies:
+ - path: ../lib/macos/policies/cis-benchmark-macos15.yml
+ - path: ../lib/macos/policies/tailscale-installed.yml
+ - path: ../lib/linux/policies/check-fleet-desktop-extension-fedora-debian.yml
+ - path: ../lib/linux/policies/disk-encryption-check.yml
+queries:
+software:
+ packages:
+  - path: ../lib/macos/software/tailscale.yml
+  - path: ../lib/linux/software/slack-deb.yml
+  - path: ../lib/linux/software/slack-rpm.yml
+  - path: ../lib/linux/software/zoom-deb.yml
+  - path: ../lib/linux/software/zoom-rpm.yml
+team_settings:
+  features:
+    enable_host_users: true
+    enable_software_inventory: true
+  host_expiry_settings:
+    host_expiry_enabled: false
+    host_expiry_window: 0
+  integrations:
+    conditional_access_enabled:
+    google_calendar:
+  secrets:
+   - secret: $FLEET_TEST_LINUX_ENCRYPTION_SECRET
+  webhook_settings:
+    failing_policies_webhook:
+      destination_url:
+      enable_failing_policies_webhook: false
+      host_batch_size: 0
+      policy_ids:
+    host_status_webhook:
