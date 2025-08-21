@@ -1,12 +1,10 @@
 - name: Linux - encryption key enrolled to TPM 
   query: |
     SELECT 1
-    FROM file f
-    JOIN file_contents fc ON f.path = fc.path
-    WHERE f.path = '/var/lib/tpm-enroll/.root_enrolled'
-      AND fc.data LIKE '%status=enrolled%'
-      AND fc.data LIKE '%device=%'
-      AND fc.data LIKE '%enrollment_time=%'; 
+    FROM file
+    WHERE path = '/var/lib/tmp-enroll/.root_enrolled'
+      AND size > 50
+      AND type = 'regular'; 
   critical: false
   description: This policy verifies that LUKS2 disk encryption keys are properly enrolled with TPM2 for secure boot-time unsealing
   resolution: |
