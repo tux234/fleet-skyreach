@@ -85,11 +85,11 @@ has_tpm2_token() {
 enroll_tpm2() {
   local dev="$1"
   if [[ "$MODE" == "dry-run" ]]; then
-    log "DRY-RUN: systemd-cryptenroll --tpm2 --tpm2-pcrs=${PCRS} --device=${dev}"
+    log "DRY-RUN: systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs=${PCRS} ${dev}"
     return 0
   fi
   export SYSTEMD_ASK_PASSWORD=0
-  systemd-cryptenroll --tpm2 --tpm2-pcrs="${PCRS}" --device="${dev}"
+  systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs="${PCRS}" "${dev}"
 }
 
 # ---- Pre-flight --------------------------------------------------------------
