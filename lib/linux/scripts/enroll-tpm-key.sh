@@ -75,11 +75,14 @@ is_luks2() {
 }
 
 has_tpm2_token() {
-  systemd-cryptenroll --dump "$PHYS_DEV" 2>/dev/null | awk '
-    /^Token:[[:space:]]+[0-9]+$/ {in_tok=1}
-    in_tok && /Type:[[:space:]]*systemd-tpm2/ {print "yes"; exit}
-    /^$/ {in_tok=0}
-  ' | grep -q '^yes$'
+  # Try newer systemd --dump option first, fallback to cryptsetup
+  if systemd-cryptenroll --dump "$PHYS_DEV" 2>/dev/null | grep -q "systemd-tpm2"; then
+    return 0
+  elif cryptsetup luksDump "$PHYS_DEV" 2>/dev/null | grep -q "systemd-tpm2"; then
+    return 0
+  else
+    return 1
+  fi
 }
 
 enroll_tpm2() {
@@ -89,7 +92,17 @@ enroll_tpm2() {
     return 0
   fi
   export SYSTEMD_ASK_PASSWORD=0
-  systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs="${PCRS}" "${dev}"
+  # Since Fleet can only run when system is unlocked, try enrollment without auth first
+  log "Attempting TPM enrollment using existing unlocked session..."
+  if timeout 30 systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs="${PCRS}" "${dev}" 2>/dev/null; then
+    log "TPM enrollment succeeded using unlocked session"
+    return 0
+  fi
+  
+  # If that fails, the volume might need explicit unlock
+  warn "TPM enrollment failed. The LUKS volume may require explicit authentication."
+  warn "This should not happen if Fleet is running on an unlocked system."
+  return 1
 }
 
 # ---- Pre-flight --------------------------------------------------------------
@@ -98,9 +111,40 @@ need_bin findmnt
 need_bin cryptsetup
 need_bin systemd-cryptenroll
 
+# Check TPM device availability
 if [[ ! -e /dev/tpmrm0 && ! -e /dev/tpm0 ]]; then
   err "No TPM device found (/dev/tpmrm0 or /dev/tpm0). On VMs, enable a vTPM."
   exit 1
+fi
+
+# Verify TPM is accessible and ready
+# Use a proper TPM command to test accessibility instead of trying to write to device
+if command -v tpm2_getcap >/dev/null 2>&1; then
+  if ! tpm2_getcap properties-fixed >/dev/null 2>&1; then
+    err "TPM device exists but is not accessible. Check TPM ownership/activation."
+    exit 1
+  fi
+else
+  # Fallback: just check read permissions on TPM device
+  if [[ -e /dev/tpmrm0 ]]; then
+    TPM_DEV="/dev/tpmrm0"
+  else
+    TPM_DEV="/dev/tpm0"
+  fi
+  if [[ ! -r "$TPM_DEV" ]]; then
+    err "TPM device $TPM_DEV is not readable. Check permissions."
+    exit 1
+  fi
+fi
+
+# Verify Secure Boot is enabled (required for meaningful PCR 7 measurements)
+if [[ -d /sys/firmware/efi ]] && command -v bootctl >/dev/null 2>&1; then
+  if ! bootctl status 2>/dev/null | grep -q "Secure Boot: enabled"; then
+    warn "Secure Boot is not enabled. TPM enrollment may not provide full boot integrity protection."
+    warn "PCR 7 measurements will not include Secure Boot verification."
+  fi
+elif [[ ! -d /sys/firmware/efi ]]; then
+  warn "Legacy BIOS detected. PCR 7 measurements may not include boot integrity verification."
 fi
 
 if ! systemd_cryptenroll_version_ok; then
@@ -140,13 +184,32 @@ for dev in "${TARGETS[@]}"; do
   log "Enrolling TPM2: FS/LV=${dev} CRYPT=${CRYPT_DEV} PHYS=${PHYS_DEV}"
   if enroll_tpm2 "$PHYS_DEV"; then
     CHANGED=1
-    systemd-cryptenroll --dump "$PHYS_DEV" || true
-
-    # mark completion so the policy stops firing
-    mkdir -p /var/lib/tpm-enroll
-    echo "ok" >/var/lib/tpm-enroll/.root_enrolled
+    log "TPM2 enrollment succeeded for ${PHYS_DEV}"
+    
+    # Verify the TPM token was actually created
+    if has_tpm2_token; then
+      log "TPM2 token verified in LUKS header for ${PHYS_DEV}"
+      
+      # Create detailed completion marker for OSQuery verification
+      mkdir -p /var/lib/tpm-enroll
+      {
+        echo "device=${PHYS_DEV}"
+        echo "crypt_device=${CRYPT_DEV}"
+        echo "mounted_device=${dev}"
+        echo "enrollment_time=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+        echo "pcrs=${PCRS}"
+        echo "systemd_version=$(systemd-cryptenroll --version 2>/dev/null | head -n1 | awk '{print $2}' || echo 'unknown')"
+        echo "status=enrolled"
+        # Include token info for verification
+        systemd-cryptenroll --dump "$PHYS_DEV" 2>/dev/null | grep -A5 -B1 "systemd-tpm2" | head -10 || true
+      } > /var/lib/tpm-enroll/.root_enrolled
+      
+      log "TPM enrollment completed and verified for ${PHYS_DEV}"
+    else
+      err "TPM token not found after enrollment for ${PHYS_DEV}. Enrollment may have failed."
+    fi
   else
-    err "Enrollment failed for ${PHYS_DEV}"
+    err "TPM enrollment failed for device ${PHYS_DEV} (mounted at: $(findmnt -n -o TARGET "${dev}" 2>/dev/null || echo 'unknown'))"
   fi
 done
 

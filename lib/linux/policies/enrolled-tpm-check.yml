@@ -1,15 +1,20 @@
 - name: Linux - encryption key enrolled to TPM 
   query: |
     SELECT 1
-    FROM file
-    WHERE path = '/var/lib/tpm-enroll/.root_enrolled'; 
+    FROM file f
+    JOIN file_contents fc ON f.path = fc.path
+    WHERE f.path = '/var/lib/tpm-enroll/.root_enrolled'
+      AND fc.data LIKE '%status=enrolled%'
+      AND fc.data LIKE '%device=%'
+      AND fc.data LIKE '%enrollment_time=%'; 
   critical: false
-  description: This policy checks to see if the device created a decryption in the Trusted Platform Module 
+  description: This policy verifies that LUKS2 disk encryption keys are properly enrolled with TPM2 for secure boot-time unsealing
   resolution: |
     Fleet will run the following remediation script as root:
      enroll-tpm-key.sh
-    The script enrolls LUKS2 volumes with TPM2 and then writes the marker:
-      /var/lib/tpm-enroll/.root_enrolled 
+    The script enrolls LUKS2 volumes with TPM2, verifies the enrollment succeeded, 
+    and creates a detailed completion marker containing device details and enrollment 
+    verification data for OSQuery validation. 
   platform: linux
   run_script:
     path: ../scripts/enroll-tpm-key.sh
