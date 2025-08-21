@@ -60,8 +60,10 @@ resolve_chain() {
   # Handle dm_crypt-* naming - ensure /dev/mapper/ prefix
   [[ -b "$CRYPT_DEV" ]] || CRYPT_DEV="/dev/${crypt_kname}"
 
+  # Get the underlying physical device for the crypt device
+  # Use lsblk -s to trace dependencies and find the actual partition/disk
   local pk
-  pk="$(lsblk -no PKNAME "$CRYPT_DEV")"
+  pk="$(lsblk -srno NAME,TYPE "$CRYPT_DEV" | awk '$2=="part"||$2=="disk"{print $1; exit}')"
   [[ -n "$pk" ]] || return 1
   PHYS_DEV="/dev/${pk}"
   return 0
