@@ -1,4 +1,4 @@
-i#!/usr/bin/env bash
+#!/usr/bin/env bash
 # enroll-tpm-key.sh
 # Non-interactive TPM2 enrollment for mounted LUKS2 volumes.
 # Intended to be run by Fleet as root on Linux hosts.
