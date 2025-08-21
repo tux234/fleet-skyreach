@@ -12,4 +12,4 @@
       /var/lib/tpm-enroll/.root_enrolled 
   platform: linux
   run_script:
-    - path: ../scripts/enroll-tpm-key.sh
+    path: ../scripts/enroll-tpm-key.sh
