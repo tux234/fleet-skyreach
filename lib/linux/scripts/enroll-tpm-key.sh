@@ -40,15 +40,25 @@ resolve_chain() {
   }
 
   local crypt_kname
-  crypt_kname="$(lsblk -rno NAME,TYPE "$dev" | awk '$2=="crypt"{print $1; exit}')"
-  if [[ -z "$crypt_kname" ]]; then
-    if [[ "$(lsblk -no TYPE "$dev")" == "crypt" ]]; then
-      crypt_kname="$(lsblk -no NAME "$dev")"
-    else
-      return 1
+  # First check if this device itself is crypt
+  if [[ "$(lsblk -no TYPE "$dev")" == "crypt" ]]; then
+    crypt_kname="$(lsblk -no NAME "$dev")"
+  else
+    # Look for crypt device in the dependency chain (handles LVM-over-LUKS)
+    crypt_kname="$(lsblk -srno NAME,TYPE "$dev" | awk '$2=="crypt"{print $1; exit}')"
+    if [[ -z "$crypt_kname" ]]; then
+      # Fallback: look for crypt children (original behavior)
+      crypt_kname="$(lsblk -rno NAME,TYPE "$dev" | awk '$2=="crypt"{print $1; exit}')"
     fi
   fi
-  CRYPT_DEV="/dev/${crypt_kname}"
+  
+  if [[ -z "$crypt_kname" ]]; then
+    return 1
+  fi
+  
+  CRYPT_DEV="/dev/mapper/${crypt_kname}"
+  # Handle dm_crypt-* naming - ensure /dev/mapper/ prefix
+  [[ -b "$CRYPT_DEV" ]] || CRYPT_DEV="/dev/${crypt_kname}"
 
   local pk
   pk="$(lsblk -no PKNAME "$CRYPT_DEV")"
