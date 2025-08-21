@@ -33,6 +33,7 @@ policies:
  - path: ../lib/linux/policies/check-fleet-desktop-extension-fedora-debian.yml
  - path: ../lib/linux/policies/disk-encryption-check.yml
  - path: ../lib/linux/policies/enrolled-tpm-check.yml
+queries:
 software:
  packages:
   - path: ../lib/macos/software/tailscale.yml
