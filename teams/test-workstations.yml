@@ -24,14 +24,15 @@ controls:
     deadline_days:
     grace_period_days:
   scripts:
-  - path: ../lib/linux/scripts/install-fleet-desktop-required-extension.sh 
+   - path: ../lib/linux/scripts/install-fleet-desktop-required-extension.sh
+   - path: ../lib/linux/scripts/enroll-tpm-key.sh
 name: Test Linux Encryption 
 policies:
  - path: ../lib/macos/policies/cis-benchmark-macos15.yml
  - path: ../lib/macos/policies/tailscale-installed.yml
  - path: ../lib/linux/policies/check-fleet-desktop-extension-fedora-debian.yml
  - path: ../lib/linux/policies/disk-encryption-check.yml
-queries:
+ - path: ../lib/linux/policies/enrolled-tpm-check.yml
 software:
  packages:
   - path: ../lib/macos/software/tailscale.yml

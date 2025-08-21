@@ -1,0 +1,13 @@
+- name: Linux - encryption key enrolled to TPM 
+  query: |
+    SELECT 1
+    FROM file
+    WHERE path = '/var/lib/tpm-enroll/.root_enrolled'; 
+  critical: false
+  description: This policy checks to see if the device created a decryption in the Trusted Platform Module 
+  resolution: |
+    Fleet will run the following remediation script as root:
+     enroll-tpm-key.sh
+    The script enrolls LUKS2 volumes with TPM2 and then writes the marker:
+      /var/lib/tpm-enroll/.root_enrolled 
+  platform: linux

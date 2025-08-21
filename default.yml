@@ -1,6 +1,5 @@
 agent_options:
   path: ./lib/all/agent-options/agent-options.yml
-labels:
 org_settings:
   features:
     enable_host_users: true
