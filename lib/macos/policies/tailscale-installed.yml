@@ -1,7 +1,7 @@
 - name: macOS - Tailscale installed
   query: SELECT 1 FROM apps WHERE bundle_identifier = 'io.tailscale.ipn.macos';
   install_software:
-    package_path: ../software/tailscale.yml
+    package_path: ../lib/macos/software/tailscale.yml
   critical: false
   description: Our policies require a VP to be installed on all workstations.
   resolution: Tailscale should be automatically installed. If it is missing, install it from self-service. 
